@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Sara 💖</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+overflow:hidden;
+height:100vh;
+background:linear-gradient(180deg,#ffd7eb,#f1d4ff,#d9b3ff);
+}
+
+.screen{
+width:100%;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+position:absolute;
+}
+
+#main{
+display:none;
+}
+
+.title{
+color:white;
+font-size:35px;
+margin-bottom:30px;
+text-align:center;
+text-shadow:0 0 20px rgba(255,255,255,.8);
+padding:20px;
+}
+
+button{
+padding:20px 40px;
+font-size:22px;
+border:none;
+border-radius:40px;
+background:#ff70b8;
+color:white;
+cursor:pointer;
+box-shadow:0 0 30px rgba(255,112,184,.6);
+}
+
+button:hover{
+transform:scale(1.04);
+}
+
+.moon{
+position:absolute;
+top:60px;
+right:80px;
+width:120px;
+height:120px;
+border-radius:50%;
+background:#fff5d0;
+box-shadow:0 0 50px #fff5d0;
+}
+
+.star{
+position:absolute;
+font-size:24px;
+color:white;
+animation:blink 2s infinite alternate;
+}
+
+@keyframes blink{
+from{opacity:0.3}
+to{opacity:1}
+}
+
+.flower{
+position:absolute;
+font-size:30px;
+animation:float 4s infinite ease-in-out;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+100%{transform:translateY(0)}
+}
+
+.record{
+width:280px;
+height:280px;
+border-radius:50%;
+overflow:hidden;
+animation:spin 5s linear infinite;
+box-shadow:0 0 35px rgba(0,0,0,.4);
+margin-bottom:30px;
+}
+
+.record img{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:50%;
+}
+
+@keyframes spin{
+from{transform:rotate(0deg)}
+to{transform:rotate(360deg)}
+}
+
+.message{
+max-width:85%;
+text-align:center;
+color:white;
+font-size:22px;
+line-height:1.8;
+padding:20px;
+text-shadow:0 0 12px rgba(0,0,0,.3);
+}
+</style>
+</head>
+<body>
+
+<div class="screen" id="start">
+<div class="title">hola mi amor 💖</div>
+<button onclick="startSurprise()">esta sorpresa es para ti sara</button>
+</div>
+
+<div class="screen" id="main">
+<div class="moon"></div>
+
+<div class="star" style="top:10%; left:20%">✨</div>
+<div class="star" style="top:22%; left:60%">⭐</div>
+<div class="star" style="top:14%; left:80%">✨</div>
+<div class="star" style="top:35%; left:35%">⭐</div>
+
+<div class="flower" style="bottom:100px; left:40px">🌸</div>
+<div class="flower" style="bottom:180px; right:60px">🌷</div>
+<div class="flower" style="bottom:70px; left:150px">🌸</div>
+
+<div class="record">
+<img src="cover.jpg">
+</div>
+
+<div class="message">
+te amo muchisimo mi amor, y queria que supieras lo importante que eres para mi, desde que estas en mi vida todo se siente mas bonito, mas tranquilo, mas real, contigo me siento en paz, y sinceramente una de las cosas que mas deseo en esta vida es poder construir un futuro contigo, casarme contigo algun dia, formar una familia a tu lado y compartirlo todo, lo bueno y lo malo, porque si es contigo, lo quiero todo, te elijo hoy, mañana y siempre
+</div>
+</div>
+
+<audio id="music" loop>
+<source src="ojitos.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function startSurprise(){
+document.getElementById("start").style.display="none";
+document.getElementById("main").style.display="flex";
+
+let music=document.getElementById("music");
+music.volume=0.6;
+music.play();
+}
+</script>
+
+</body>
+</html>
