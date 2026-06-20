@@ -14,63 +14,68 @@ font-family:Arial,sans-serif;
 }
 
 body{
-overflow:hidden;
-height:100vh;
+min-height:100vh;
 background:linear-gradient(180deg,#ffd7eb,#f1d4ff,#d9b3ff);
+overflow-x:hidden;
 }
 
+/* SCREENS */
 .screen{
 width:100%;
-height:100vh;
+min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
 flex-direction:column;
-position:absolute;
+padding:20px;
+text-align:center;
 }
 
 #main{
 display:none;
+position:relative;
 }
 
+/* TITLE */
 .title{
 color:white;
-font-size:35px;
-margin-bottom:30px;
-text-align:center;
+font-size:clamp(22px,5vw,35px);
+margin-bottom:20px;
 text-shadow:0 0 20px rgba(255,255,255,.8);
-padding:20px;
 }
 
+/* BUTTON */
 button{
-padding:20px 40px;
-font-size:22px;
+padding:16px 30px;
+font-size:18px;
 border:none;
 border-radius:40px;
 background:#ff70b8;
 color:white;
 cursor:pointer;
-box-shadow:0 0 30px rgba(255,112,184,.6);
+box-shadow:0 0 20px rgba(255,112,184,.5);
 }
 
-button:hover{
-transform:scale(1.04);
+button:active{
+transform:scale(0.98);
 }
 
+/* MOON */
 .moon{
 position:absolute;
-top:60px;
-right:80px;
-width:120px;
-height:120px;
+top:20px;
+right:20px;
+width:80px;
+height:80px;
 border-radius:50%;
 background:#fff5d0;
-box-shadow:0 0 50px #fff5d0;
+box-shadow:0 0 40px #fff5d0;
 }
 
+/* STARS */
 .star{
 position:absolute;
-font-size:24px;
+font-size:18px;
 color:white;
 animation:blink 2s infinite alternate;
 }
@@ -80,26 +85,30 @@ from{opacity:0.3}
 to{opacity:1}
 }
 
+/* FLOWERS */
 .flower{
 position:absolute;
-font-size:30px;
+font-size:22px;
 animation:float 4s infinite ease-in-out;
 }
 
 @keyframes float{
 0%{transform:translateY(0)}
-50%{transform:translateY(-15px)}
+50%{transform:translateY(-10px)}
 100%{transform:translateY(0)}
 }
 
+/* RECORD (ARREGLADO PARA MÓVIL) */
 .record{
-width:280px;
-height:280px;
+width:180px;
+height:180px;
+max-width:60vw;
+max-height:60vw;
 border-radius:50%;
 overflow:hidden;
-animation:spin 5s linear infinite;
-box-shadow:0 0 35px rgba(0,0,0,.4);
-margin-bottom:30px;
+animation:spin 6s linear infinite;
+box-shadow:0 0 25px rgba(0,0,0,.35);
+margin:20px 0;
 }
 
 .record img{
@@ -114,17 +123,39 @@ from{transform:rotate(0deg)}
 to{transform:rotate(360deg)}
 }
 
+/* MESSAGE */
 .message{
-max-width:85%;
-text-align:center;
+max-width:90%;
 color:white;
-font-size:22px;
-line-height:1.8;
-padding:20px;
-text-shadow:0 0 12px rgba(0,0,0,.3);
+font-size:16px;
+line-height:1.6;
+text-shadow:0 0 10px rgba(0,0,0,.3);
+margin-bottom:30px;
+}
+
+/* EXTRA FIX PARA MÓVIL */
+@media (max-width:768px){
+
+.moon{
+width:60px;
+height:60px;
+top:10px;
+right:10px;
+}
+
+.record{
+width:160px;
+height:160px;
+}
+
+.message{
+font-size:15px;
+}
+
 }
 </style>
 </head>
+
 <body>
 
 <div class="screen" id="start">
@@ -133,16 +164,16 @@ text-shadow:0 0 12px rgba(0,0,0,.3);
 </div>
 
 <div class="screen" id="main">
+
 <div class="moon"></div>
 
-<div class="star" style="top:10%; left:20%">✨</div>
-<div class="star" style="top:22%; left:60%">⭐</div>
-<div class="star" style="top:14%; left:80%">✨</div>
-<div class="star" style="top:35%; left:35%">⭐</div>
+<div class="star" style="top:10%; left:15%">✨</div>
+<div class="star" style="top:18%; left:70%">⭐</div>
+<div class="star" style="top:30%; left:25%">✨</div>
+<div class="star" style="top:40%; left:80%">⭐</div>
 
-<div class="flower" style="bottom:100px; left:40px">🌸</div>
-<div class="flower" style="bottom:180px; right:60px">🌷</div>
-<div class="flower" style="bottom:70px; left:150px">🌸</div>
+<div class="flower" style="bottom:80px; left:20px">🌸</div>
+<div class="flower" style="bottom:120px; right:30px">🌷</div>
 
 <div class="record">
 <img src="cover.jpg">
@@ -151,6 +182,7 @@ text-shadow:0 0 12px rgba(0,0,0,.3);
 <div class="message">
 te amo muchisimo mi amor, y queria que supieras lo importante que eres para mi, desde que estas en mi vida todo se siente mas bonito, mas tranquilo, mas real, contigo me siento en paz, y sinceramente una de las cosas que mas deseo en esta vida es poder construir un futuro contigo, casarme contigo algun dia, formar una familia a tu lado y compartirlo todo, lo bueno y lo malo, porque si es contigo, lo quiero todo, te elijo hoy, mañana y siempre
 </div>
+
 </div>
 
 <audio id="music" loop>
